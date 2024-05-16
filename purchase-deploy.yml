@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: purchase
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: purchase
+  template:
+    metadata:
+      labels:
+        app: purchase
+    spec:
+      containers:
+      - name: purchase
+        image: my-purchase-image
+        ports:
+        - containerPort: 8084
